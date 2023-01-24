@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Recherches_et_statistiques_des_Incendies</title>
+</head>
+<body>
+    <main>
+<section id="home">
+
+    <div id="haut">
+        <h1> Recherches et statistiques des incendies du bassin méditérannéen </h1>
+        <h2> Informations collectées grâce au centre de recherche de Goliat</h2>
+    </div>
+    <img src="image.jpeg" alt="">
+</section>
+
+<section id="description">
+    <h3> Chaque année, les feux de forêts ont des conséquences dramatiques sur l homme et la nature. En France, les zones les plus touchées par ces incendies sont des réservoirs de biodiversité d une grande richesse et sont invariablement mis en danger, et ce tous les étés. Si 9 feux sur 10 sont causé par l'activité humaine, nous avons décidé de vérifier combien étaient causés par les mégots de cigarettes. </h3>
+</section>
+
+
+<section id="graphiques">
+
+<div class="graphs">
+
+
+     
+
+    
+        <div id="chart1" style="width:80%; height:400px">
+        </div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.js"></script>
+<script>
+fetch('./languedoc.json')
+.then((response) => response.json())
+.then((json) => {
+
+const groupByMonth = json.reduce((acc, current) => {
+const mois = current["Alerte"].substring(3,8)
+if (!acc[mois]) {
+acc[mois] = []
+}
+
+acc[mois].push(current)
+
+return acc
+}, {})
+
+// Initialize the echarts instance based on the prepared dom
+const myChart = echarts.init(document.querySelector('#chart1'));
+
+
+// Specify the configuration items and data for the chart
+const option = {
+title: {
+text: 'Nombre d incendies par mois dans la région du languedoc-roussillon ' // TITRE 
+},
+tooltip: {},
+legend: {
+data: ['Mois']
+},
+xAxis: {
+name: "Nombre",
+data: Object.keys(groupByMonth), // Reécupère les clef d'un objets
+
+},
+yAxis: {},
+series: [
+{
+name: 'Incendies',
+type: 'bar',
+color: '#ae642d ' ,
+data: Object.values(groupByMonth).map((tableauDincdendies) => tableauDincdendies.length)
+}
+]
+};
+
+// Display the chart using the configuration items and data just specified.
+myChart.setOption(option);
+
+});
+</script>
+
+ <p>Sur un total de 35 incendies causés par des mégots jeté par des promeneurs sur une étude de 13 ans, on peut observer que la majorité des incendies sont reportés sur la période juillet/aout. En comptant uniquement ces 2 mois, nous arrivons déjà à 25 incendies. </p>
+ 
+
+</div>
+</div>
+
+<div class="graphs">
+    <div id="chart2" style="width:80%; height:400px">
+    </div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.js"></script>
+<script>
+fetch('./provence.json')
+.then((response) => response.json())
+.then((json) => {
+
+const groupByMonth = json.reduce((acc, current) => {
+const mois = current["Alerte"].substring(3,8)
+if (!acc[mois]) {
+acc[mois] = []
+}
+
+acc[mois].push(current)
+
+return acc
+}, {})
+
+// Initialize the echarts instance based on the prepared dom
+const myChart = echarts.init(document.querySelector('#chart2'));
+
+
+// Specify the configuration items and data for the chart
+const option = {
+title: {
+text: 'Nombre d incendies par mois dans la région Provence-Alpes côte d azur' // TITRE 
+},
+tooltip: {},
+legend: {
+data: ['Mois']
+},
+xAxis: {
+name: "Nombre",
+data: Object.keys(groupByMonth), // Reécupère les clef d'un objets
+
+},
+yAxis: {},
+series: [
+{
+name: 'Incendies',
+type: 'bar',
+color: '#ae642d ' ,
+data: Object.values(groupByMonth).map((tableauDincdendies) => tableauDincdendies.length)
+}
+]
+};
+
+// Display the chart using the configuration items and data just specified.
+myChart.setOption(option);
+
+});
+</script>
+    <div> <p>Sur un total de 54 incendies causés par des mégots jeté par des promeneurs sur une études de 13 ans, on peut observer que la majorité des incendies sont reportés sur la période juillet/aout. En comptant uniquement ces 2 mois, nous arrivons déjà à 36 incendies. </p>
+</div>
+</div>
+<div class="graphs">
+    
+    <div id="chart3" style="width:100%; height:400px">
+    </div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.js"></script>
+<script>
+fetch('./corse.json')
+.then((response) => response.json())
+.then((json) => {
+
+const groupByMonth = json.reduce((acc, current) => {
+const mois = current["Alerte"].substring(3,8)
+if (!acc[mois]) {
+acc[mois] = []
+}
+
+acc[mois].push(current)
+
+return acc
+}, {})
+
+// Initialize the echarts instance based on the prepared dom
+const myChart = echarts.init(document.querySelector('#chart3'));
+
+
+// Specify the configuration items and data for the chart
+const option = {
+title: {
+text: 'Nombre d incendies par mois dans la région Corse' 
+},
+tooltip: {},
+legend: {
+data: ['Mois']
+},
+xAxis: {
+name: "Nombre",
+data: Object.keys(groupByMonth), // Reécupère les clef d'un objets
+
+},
+yAxis: {},
+series: [
+{
+name: 'Incendies',
+type: 'bar',
+color: '#ae642d ' ,
+data: Object.values(groupByMonth).map((tableauDincdendies) => tableauDincdendies.length)
+}
+]
+};
+
+// Display the chart using the configuration items and data just specified.
+myChart.setOption(option);
+
+});
+</script>
+    <div> <p>Sur un total de 10 incendies causés par des mégots jeté par des promeneurs sur une études de 13 ans, on peut observer que la grande majorité, voire l'entièreté des incendies sont reportés sur la période juillet/aout. En comptant uniquement ces 2 mois, nous arrivons à 9 incendies sur les 10 comptés en 13 ans. </p>
+    </p></div>
+</div>
+
+</section>
+
+<section id="description">
+    <p>Avec ces données, on peut surtout observer le manque de vigilance des fumeurs pendant l'été, période durant laquelle les départs de feu sont les plus nombreux. C'est pourquoi nous avons mis en place une campagne de prévention dans les 3 région que nous avons étudiées, en disposant des affiches prévenant du risque d'incendie causé par les mégots de cigarettes.</p>
+</section>
+
+
+
+<section id="affiches">
+
+    <div>
+
+<img src="Affiche_incendie_alpes.jpg" class="images" alt=""></div>
+
+
+    <div>
+<img src="Affiche_incendie_corse.jpg" class="images" alt=""></div>
+
+<div>
+<img src="Affiche_incendie_roussilon.jpg" class="images" alt=""></div>
+</section>
+
+    </main>
+    <footer>
+        <a href="https://www.promethee.com/">Lien vers les données utilisées</a>
+    </footer>
+</body>
+</html>

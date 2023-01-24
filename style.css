@@ -1,0 +1,79 @@
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(244, 222, 222);
+}
+
+#home{
+    display: flex;
+    margin: -10px;
+}
+
+#haut{
+    width: 45vw;
+    background-color: rgb(96, 118, 109);
+    padding-top: 20%;
+    padding-left: 5vw;
+    color: rgb(244, 222, 222);
+}
+
+img{
+    width: 55vw;
+}
+
+#description{
+    text-align: center;
+    border: 5px solid rgb(96, 118, 109);
+    color: rgb(96, 118, 109) ;
+}
+
+.graphs{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(96, 118, 109);
+    border-radius: 2%;
+    width: 80%;
+    margin: 1vw;
+    padding: 2vw;
+    color: rgb(244, 222, 222);
+    text-align: center;
+    height: 50vh;
+
+}
+
+#graphiques{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+#affiches{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#affiches  div{
+    width: 40vw;
+    margin: 4vw;
+}
+
+.images{
+    width: 100%;
+    margin: 2vw;
+}
+
+footer{
+    background-color: rgb(96, 118, 109);
+    text-align: center;
+    height: 10vh;
+    padding-top: 5vh;
+    margin: -10px;
+}
+
+a {
+    color: brown;
+}
